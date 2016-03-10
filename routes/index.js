@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET all paintings. */
 router.get('/', function(req, res, next) {
-  res.send('great art at naffordable prices');
+  res.send('great art affordable prices');
 });
 
 module.exports = router;
