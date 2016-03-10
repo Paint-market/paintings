@@ -1,7 +1,10 @@
 [![Stories in Ready](https://badge.waffle.io/Paint-market/paintings.png?label=ready&title=Ready)](https://waffle.io/Paint-market/paintings)
 
 # Paintings
-#Paintings API  v1
+## Paintings API  v1
+
+## URL
+App is deployed to https://paint-market-paintings.herokuapp.com/ . App will be re-deployed automatically whenever there is a pull request accepted into master that passes all the tests.
 
 ##Create a painting:
 
