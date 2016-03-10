@@ -3,9 +3,9 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+var routes = require('./routes/v1/paintings');
 var users = require('./routes/users');
-var paintings = require('./routes/index');
+var paintings = require('./routes/v1/paintings');
 
 var app = express();
 
