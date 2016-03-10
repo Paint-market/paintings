@@ -20,8 +20,8 @@ For example:
 
 ```var paintings = {
   paintings: [
-  { **paintingId:** 1, **creatorId:** 11, **ownerId:** 111, **title:** 'depressed', **imageUrl:** 'url string', **price:** 5 },
-  { **paintingId:** 2, **creatorId:** 22, **ownerId:** 222, **title:** 'disturbed', **imageUrl:** 'url string', **price:** 20 }
+  { paintingId: 1, creatorId: 11, ownerId: 111, title: 'depressed', imageUrl: 'url string', price: 5 },
+  { paintingId: 2, creatorId: 22, ownerId: 222, title: 'disturbed', imageUrl: 'url string', price: 20 }
 ]}```
 
 If the database is empty, an empty object is returned.
