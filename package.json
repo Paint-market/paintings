@@ -9,6 +9,25 @@
     "body-parser": "~1.13.2",
     "debug": "~2.2.0",
     "express": "~4.13.1",
+    "fs": "0.0.2",
     "morgan": "~1.6.1"
-  }
+  },
+  "description": "[![Stories in Ready](https://badge.waffle.io/Paint-market/paintings.png?label=ready&title=Ready)](https://waffle.io/Paint-market/paintings)",
+  "main": "app.js",
+  "devDependencies": {
+    "supertest": "^1.2.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paint-market/paintings.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paint-market/paintings/issues"
+  },
+  "homepage": "https://github.com/Paint-market/paintings#readme"
 }
