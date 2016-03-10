@@ -1,11 +1,3 @@
-var test = require('tape');
-
-test('', function(t) {
- t.ok(true)
- t.end()
-})
-
-// Louise added this below from getAllPaintignsTest.js
 var request = require('supertest');
 var app = require('../app');
 var test = require('tape');
