@@ -16,8 +16,7 @@ var paintingsSample = {
   {paintingId: 1, creatorId: 11, ownerId: 111, title: 'depressed', image: 'https://www.flickr.com/photos/imagomundiphoto/25636563386/', price: 100},
   {paintingId: 2, creatorId: 22, ownerId: 222, title: 'disturbed', image: 'https://www.flickr.com/photos/imagomundiphoto/25636574156/', price: 200},
   {paintingId: 3, creatorId: 33, ownerId: 333, title: 'artsy fartsy', image: 'https://www.flickr.com/photos/sarahjohnston/5130007088/', price: 300}
- ]
-}
+ ]}
 
 var expectedPaintings = {
  paintings: [
@@ -25,8 +24,7 @@ var expectedPaintings = {
   {paintingId: 2, creatorId: 22, ownerId: 222, title: 'disturbed', image: 'https://www.flickr.com/photos/imagomundiphoto/25636574156/', price: 200},
   {paintingId: 3, creatorId: 33, ownerId: 333, title: 'artsy fartsy', image: 'https://www.flickr.com/photos/sarahjohnston/5130007088/', price: 300},
   {paintingId: 4, creatorId: 44, ownerId: 444, title: 'I am new', image: 'https://www.flickr.com/photos/imagomundiphoto/25032203254/', price: 400}
- ]
-}
+ ]}
 
 function addNewPainting(paintingsSample, newPainting) {
     var newPaintingId = paintingsSample.paintings.length + 1
@@ -35,6 +33,15 @@ function addNewPainting(paintingsSample, newPainting) {
     return paintingsSample
 }
 
+test('get status code 200 from /v1/createPainting/:paintingId', function(t) {
+  request(app)
+    .get('/v1/createPainting/1')
+    .expect(200)
+    .end(function(err, res) {
+      t.false(err, "no error")
+      t.end()
+    })
+})
 /* get cat by id example
 test('get status code 200 from /v1/cats/:id', function(t) {
   request(app)
@@ -91,5 +98,3 @@ test('get /v1/cats returns an object with the property "cats"', function(t) {
     })
 })
 */
-
-
