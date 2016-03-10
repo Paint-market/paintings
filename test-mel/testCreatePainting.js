@@ -8,10 +8,11 @@ test('create a new painting', function(t){
 })
 
 var newPainting = {
-    paintingId: 4, creatorId: 44, ownerId: 444, title: 'I am new', image: 'https://www.flickr.com/photos/imagomundiphoto/25032203254/', price: 400
-    }
+  paintingId: 4, creatorId: 44, ownerId: 444, title: 'I am new', image: 'https://www.flickr.com/photos/imagomundiphoto/25032203254/', price: 40000
+}
 
 var paintingsSample = {
+<<<<<<< HEAD
  paintings: [
   {paintingId: 1, creatorId: 11, ownerId: 111, title: 'depressed', image: 'https://www.flickr.com/photos/imagomundiphoto/25636563386/', price: 100},
   {paintingId: 2, creatorId: 22, ownerId: 222, title: 'disturbed', image: 'https://www.flickr.com/photos/imagomundiphoto/25636574156/', price: 200},
@@ -25,12 +26,29 @@ var expectedPaintings = {
   {paintingId: 3, creatorId: 33, ownerId: 333, title: 'artsy fartsy', image: 'https://www.flickr.com/photos/sarahjohnston/5130007088/', price: 300},
   {paintingId: 4, creatorId: 44, ownerId: 444, title: 'I am new', image: 'https://www.flickr.com/photos/imagomundiphoto/25032203254/', price: 400}
  ]}
+=======
+  paintings: [
+    { paintingId: 1, creatorId: 11, ownerId: 111, title: 'depressed', image: 'https://www.flickr.com/photos/imagomundiphoto/25636563386/', price: 5 },
+    { paintingId: 2, creatorId: 22, ownerId: 222, title: 'disturbed', image: 'https://www.flickr.com/photos/imagomundiphoto/25636574156/', price: 20 },
+    { paintingId: 3, creatorId: 33, ownerId: 333, title: 'artsy fartsy', image: 'https://www.flickr.com/photos/sarahjohnston/5130007088/', price: 300 }
+  ]
+}
+
+var expectedPaintings = {
+  paintings: [
+    { paintingId: 1, creatorId: 11, ownerId: 111, title: 'depressed', image: 'https://www.flickr.com/photos/imagomundiphoto/25636563386/', price: 5 },
+    { paintingId: 2, creatorId: 22, ownerId: 222, title: 'disturbed', image: 'https://www.flickr.com/photos/imagomundiphoto/25636574156/', price: 20 },
+    { paintingId: 3, creatorId: 33, ownerId: 333, title: 'artsy fartsy', image: 'https://www.flickr.com/photos/sarahjohnston/5130007088/', price: 300 },
+    { paintingId: 4, creatorId: 44, ownerId: 444, title: 'I am new', image: 'https://www.flickr.com/photos/imagomundiphoto/25032203254/', price: 40000 }
+  ]
+}
+>>>>>>> d7e2fc8b3e9e3de9dcaf722cf171208c35125e9d
 
 function addNewPainting(paintingsSample, newPainting) {
-    var newPaintingId = paintingsSample.paintings.length + 1
-    newPainting.paintingId = newPaintingId
-    paintingsSample.paintings.push(newPainting)
-    return paintingsSample
+  var newPaintingId = paintingsSample.paintings.length + 1
+  newPainting.paintingId = newPaintingId
+  paintingsSample.paintings.push(newPainting)
+  return paintingsSample
 }
 
 test('get status code 200 from /v1/createPainting/:paintingId', function(t) {
