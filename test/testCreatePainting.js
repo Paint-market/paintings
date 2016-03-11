@@ -1,4 +1,6 @@
 var test = require('tape');
+var request = require('supertest');
+var app = require('../app');
 var addNewPainting = require('../addNewPainting')
 
 test('create a new painting', function(t){
@@ -25,6 +27,20 @@ var expectedPaintings = {
     { paintingId: 4, creatorId: 44, ownerId: 444, title: 'I am new', imageUrl: 'https://www.flickr.com/photos/imagomundiphoto/25032203254/', price: 40000 }
   ]
 }
+
+test('get status code 200 for posting a new painting', function(t) {
+  request(app)
+    .post('/v1/paintings')
+    .send(newPainting)
+    .expect(200)
+    .end(function(err, res) {
+      t.false(err, 'no error for false')
+      // t.true(res.body.hasOwnProperty('paintings'), 'testy ')
+      t.deepEqual(res.body.imageUrl, newPainting.imageUrl, "returns new painting added")
+      t.end()
+    })
+})
+
 
 
 
