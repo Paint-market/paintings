@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 
 
 var paintings = require('./routes/v1/paintings');
+var createPainting = require('./routes/v1/createPainting');
 
 var app = express();
 
