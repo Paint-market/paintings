@@ -65,8 +65,8 @@ var paintings = {
   /* GET all paintings || get all paintings by creatorId*/
   router.get('/', function(req, res, next) {
     if(req.query.creatorId){
-      var filteredPaintings = paintings.filter(function (painting) {
-        return painting.creatorId === req.query.creatorId
+      var filteredPaintings = paintings.paintings.filter(function (painting) {
+        return painting.creatorId == req.query.creatorId
       })
       res.json(filteredPaintings);
     } else {
