@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var addNewPainting = require('../../addNewPainting')
 
 var paintings = {
   "paintings": [
@@ -71,6 +72,13 @@ var paintings = {
     } else {
       res.json(paintings)
     }
+});
+
+/* POST new painting */
+router.post('/', function(req, res, next) {
+  var newPainting = req.body
+  paintings = addNewPainting(paintings, newPainting)
+  res.json(newPainting);
 });
 
 module.exports = router;
