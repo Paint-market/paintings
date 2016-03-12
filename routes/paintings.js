@@ -8,23 +8,32 @@ var fs = require('fs')
 router.get('/', function(req, res, next) {
   //read in object from database
   fs.readFile('DB.json', 'utf8', function(err, data){
-  var fileObj = JSON.parse(data)
+  var paintings = JSON.parse(data)
 
   //create object to hold returned items
-  var paintingResults = {}
-  var searchParams = ['creatorId']
+  var paintingResults = []
+  var searchParams = Object.keys(req.query)
+
+
+  
 
   //if no search filter passed in return all paintings 
   if(searchParams ===[]){
-    paintingResults = fileObj
+    paintingResults = paintings
   }
- else{
+ else if(searchParams ==='title'){
+  //title search requires special consideration
+    
+  }
+  else {
     //search database by search params
-    paintingResults = fileObj
-  console.log(paintingResults.paintings[1].creatorId, "******")
-
+    paintings.paintings.forEach(function(painting){
+      if(painting.creatorId===11){
+      paintingResults.push(painting)
+    }
+     })
+    console.log(paintingResults)
   }
-
   res.json(paintingResults);
   })
 });
