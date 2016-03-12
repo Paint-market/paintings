@@ -9,18 +9,19 @@ router.get('/', function(req, res, next) {
   //read in object from database
   fs.readFile('DB.json', 'utf8', function(err, data){
   var fileObj = JSON.parse(data)
-  console.log(fileObj, "***")
 
   //create object to hold returned items
   var paintingResults = {}
-  var searchParams
-  console.log(searchParams, "params")
+  var searchParams = ['creatorId']
 
   //if no search filter passed in return all paintings 
-  if(searchParams ===undefined){
+  if(searchParams ===[]){
     paintingResults = fileObj
   }
-  else{
+ else{
+    //search database by search params
+    paintingResults = fileObj
+  console.log(paintingResults.paintings[1].creatorId, "******")
 
   }
 

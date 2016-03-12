@@ -5,21 +5,21 @@
       "paintingId": 1,
       "creatorId": 11,
       "ownerId": 111,
-      "title": "depressed",
+      "title": "scream",
       "image": "https://5636563386/",
       "price": 5
     }, {
       "paintingId": 2,
       "creatorId": 22,
       "ownerId": 222,
-      "title": "depressed",
+      "title": "claude",
       "image": "https://5636563386/",
       "price": 50
     }, {
       "paintingId": 3,
       "creatorId": 33,
       "ownerId": 333,
-      "title": "depressed",
+      "title": "mona lisa",
       "image": "https://5636563386/",
       "price": 30
     }
