@@ -10,8 +10,9 @@
     "debug": "~2.2.0",
     "express": "^4.13.4",
     "fs": "0.0.2",
-    "morgan": "^1.6.1",
-    "supertest": "^1.2.0"
+    "morgan": "^1.7.0",
+    "supertest": "^1.2.0",
+    "tape": "^4.5.1"
   },
   "description": "[![Stories in Ready](https://badge.waffle.io/Paint-market/paintings.png?label=ready&title=Ready)](https://waffle.io/Paint-market/paintings)",
   "main": "app.js",
