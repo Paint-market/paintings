@@ -1,8 +1,8 @@
-function addNewPainting(paintingsSample, newPainting) {
-  var newPaintingId = paintingsSample.paintings.length + 1
-  newPainting.paintingId = newPaintingId
-  paintingsSample.paintings.push(newPainting)
-  return paintingsSample
+function addNewPainting(paintings, newPainting) {
+  newPainting["paintingId"] = paintings.paintings.length + 1
+
+  paintings.paintings.push(newPainting)
+  return paintings
 }
 
 module.exports = addNewPainting
