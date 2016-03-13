@@ -4,12 +4,13 @@ var app = require('../app');
 var addNewPainting = require('../addNewPainting')
 
 test('create a new painting', function(t){
-  t.deepEqual(addNewPainting(paintingsSample, newPainting), expectedPaintings, 'The new painting has been added with a paintingId greater than the largest paintingId')
+  // Clarified the test message in this test - Dominic
+  t.deepEqual(addNewPainting(paintingsSample, newPainting), expectedPaintings, 'New painting added with a paintingId 1 greater than the previous largest paintingId in the collection')
   t.end()
 })
 
 var newPainting = {
-  paintingId: 4, creatorId: 44, ownerId: 444, title: 'I am new', imageUrl: 'https://www.flickr.com/photos/imagomundiphoto/25032203254/', price: 40000
+  paintingId: 199 , creatorId: 44, ownerId: 444, title: 'I am new', imageUrl: 'https://www.flickr.com/photos/imagomundiphoto/25032203254/', price: 40000
 }
 
 var paintingsSample = {
@@ -35,7 +36,7 @@ test('get status code 200 for posting a new painting', function(t) {
     .expect(200)
     .end(function(err, res) {
       t.false(err, 'no error for false')
-      // t.true(res.body.hasOwnProperty('paintings'), 'testy ')
+      t.true(res.body.hasOwnProperty('paintingId'), 'Test if painting object property is in res.body.') //Changed this line - Dominic
       t.deepEqual(res.body.imageUrl, newPainting.imageUrl, "returns new painting added")
       t.end()
     })

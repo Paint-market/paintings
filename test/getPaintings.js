@@ -9,7 +9,8 @@ test('get status code 200 from /paintings', function(t) {
     .end(function(err, res) {
       t.false(err, 'no error for false')
       t.true(res.body.hasOwnProperty('paintings'), 'res.body returns an object that has a property called paintings')
-      t.equal(res.body.paintings.length, 7, "returns all paintings")
+      // Clarified the following test message - Dominic
+      t.equal(res.body.paintings.length, 7, "returns the correct number of paintings in the collection")
       t.end()
     })
 })
