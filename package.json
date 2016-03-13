@@ -7,11 +7,14 @@
     "test": "node test/**.js"
   },
   "dependencies": {
-    "body-parser": "~1.13.2",
+    "body-parser": "^1.15.0",
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "fs": "0.0.2",
-    "morgan": "~1.6.1"
+    "morgan": "^1.7.0",
+    "path": "^0.12.7",
+    "supertest": "^1.2.0",
+    "tape": "^4.5.1"
   },
   "description": "[![Stories in Ready](https://badge.waffle.io/Paint-market/paintings.png?label=ready&title=Ready)](https://waffle.io/Paint-market/paintings)",
   "main": "app.js",
