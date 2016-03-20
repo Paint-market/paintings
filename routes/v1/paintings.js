@@ -1,84 +1,50 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs')
+
 var addNewPainting = require('../../addNewPainting')
 
-var paintings = {
-  "paintings": [
-  {
-    "paintingId": 1,
-    "creatorId": 11,
-    "ownerId": 111,
-    "title": "depressed",
-    "image": "https://www.flickr.com/photos/imagomundiphoto/25636563386/",
-    "price": 5
-  },
-  {
-    "paintingId": 2,
-    "creatorId": 22,
-    "ownerId": 222,
-    "title": "disturbed",
-    "image": "https://www.flickr.com/photos/imagomundiphoto/25636574156/",
-    "price": 20
-  },
-  {
-    "paintingId": 3,
-    "creatorId": 33,
-    "ownerId": 333,
-    "title": "artsy fartsy",
-    "image": "https://www.flickr.com/photos/ajajajajajajaj/5130007088/",
-    "price": 300
-  },
-  {
-    "paintingId": 7,
-    "creatorId": 11,
-    "ownerId": 111,
-    "title": "Pixel",
-    "image": "https://www.flickr.com/photos/abababababbaabbab/51300070000/",
-    "price": 55
-  },
-  {
-    "paintingId": 11,
-    "creatorId": 2,
-    "ownerId": 666,
-    "title": "Pixel v Vector",
-    "image": "https://www.flickr.com/photos/uuuuuumememememem/51300072222/",
-    "price": 5
-  },
-  {
-    "paintingId": 50,
-    "creatorId": 33,
-    "ownerId": 333,
-    "title": "Vector",
-    "image": "https://www.flickr.com/photos/jjejejjejejejejej/5130066666/",
-    "price": 10
-  },
-  {
-    "paintingId": 8,
-    "creatorId": 2,
-    "ownerId": 55,
-    "title": "Pixel2",
-    "image": "https://www.flickr.com/photos/yuyouyouyou/51300123123/",
-    "price": 10}
-    ]
-  }
+var paintings = {}
+
+fs.readFile('db.json','utf8', function(err, data){ //load data from db.json
+  paintings = JSON.parse(data)
 
   /* GET all paintings || get all paintings by creatorId*/
   router.get('/', function(req, res, next) {
-    if(req.query.creatorId){
-      var filteredPaintings = paintings.paintings.filter(function (painting) {
-        return painting.creatorId == req.query.creatorId
-      })
-      res.json(filteredPaintings);
+    var searchResult = searchPaintings(paintings, req.query)
+
+    if (searchResult.paintings.length == 0){
+      res.status(404).send('invalid search parameters')
     } else {
-      res.json(paintings)
+      res.json(searchResult)
     }
-});
+  });
 
-/* POST new painting */
-router.post('/', function(req, res, next) {
-  var newPainting = req.body
-  paintings = addNewPainting(paintings, newPainting)
-  res.json(newPainting);
-});
+  function searchPaintings(paintingsObj, query){
+    var paintingResult = {}
+    var searchParams = Object.keys(query)
+    if (searchParams.length === 0){
+      paintingResult = paintingsObj
+    } else {
+      var filteredPaintings = paintingsObj.paintings.filter(function(painting){
+        for (var i = 0; i < searchParams.length; i++){
+          return painting[searchParams[i]] === Number(query[searchParams[i]])
+        }
+      })
+      paintingResult["paintings"] = filteredPaintings
+    }
+    return paintingResult
+  }
 
+  /* POST new painting */
+  router.post('/', function(req, res, next) {
+    paintings = addNewPainting(paintings, req.body)
+
+    fs.writeFile('db.json',JSON.stringify(paintings))
+
+    console.log(paintings.paintings[paintings.paintings.length - 1])
+    res.json(paintings.paintings[paintings.paintings.length - 1]);
+  });
+
+})
 module.exports = router;
